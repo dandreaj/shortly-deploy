@@ -8,8 +8,11 @@ module.exports = function(grunt) {
         separator: ';',
       },
       dist: {
-        src: ['app/collections/*.js'],
-        dest: 'dist/built.js',
+        src: [
+          'public/client/**/*.js',
+          'public/lib/**/*.js'
+        ],
+        dest: 'public/dist/built.js',
       },
     },
 
@@ -86,6 +89,7 @@ module.exports = function(grunt) {
   ]);
 
   grunt.registerTask('build', [
+    grunt.task.run(['concat'])
   ]);
 
   grunt.registerTask('upload', function(n) {
